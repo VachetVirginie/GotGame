@@ -6,7 +6,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
   $scope.paused = false;
   $scope.logs = [];
   $scope.log = function(msg) {
-    msg = "Day " + $scope.family.day + " - " + msg;
+    msg = "Jour " + $scope.family.day + " - " + msg;
     $scope.logs.unshift(msg);
     if ($scope.logs.length > 50) {
       $scope.logs.pop();
@@ -19,7 +19,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
 
       $scope.family.steel += taxes;
 
-      $scope.log("Your tax collection netted " + taxes + " Gold Dragons for your House");
+      $scope.log("Vous collectez " + taxes + " dragons d'or");
       $scope.taxCD = 15;
     }
   }
@@ -30,9 +30,9 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
       $scope.family.steel -= amt * 10;
       $scope.family.soldiers += amt;
 
-      $scope.log("You hired " + amt + " soldiers");
+      $scope.log("Vous recrutez " + amt + " soldats");
     } else {
-      $scope.log("Not enough funds to hire soldiers");
+      $scope.log("Vous n'avez pas assez de dragons d'or pour recruter");
     }
   }
   $scope.checkFamilyName = function() {
@@ -353,7 +353,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
       if (tax > 0) {
         $scope.territoryTax = 30;
         $scope.family.steel += tax;
-        $scope.log("Your House collected " + tax + " Gold Dragons from territories");
+        $scope.log("Votre maison reçoit " + tax + " dragons d'or ");
       }
     }
   }
@@ -368,14 +368,14 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
         var invader = $scope.people[Math.floor(Math.random() * $scope.people.length)];
 
         if ($scope.family.enemies.indexOf(invader) >= 0) {
-          $scope.log("That scallywag, " + invader + " attacked your home with an army of " + enemies + ". Your defending soldiers are now " + $scope.family.soldiers);
+          $scope.log("Ce pirate, " + invader + "vous a attaqué avec une armée de " + enemies + ". Votre armée est maintenant de " + $scope.family.soldiers);
 
         } else if ($scope.family.allies.indexOf(invader) >= 0) {
-          $scope.log("Oh no! " + invader + " decided to backstab you. With an army of " + enemies + " Your soldiers fought valiantly against what they thought were friends. " + $scope.family.soldiers + " of your men left standing, and they want revenge. " + invader + " has been moved to the enemies list for this betrayal");
+          $scope.log("Oh non! " + invader + " à décider de vous poignarder dans le dos. Avec son armée composée de  " + enemies + " soldats. Vos soldats ont vaillament combattu ce qu'ils pensaient être des amis. " + $scope.family.soldiers + " ont survécu, et ils veulent prendre leur revanche ! " + invader + "est placé sur la liste des ennemis pour trahison!!");
           $scope.family.allies.splice($scope.family.allies.indexOf(invader), 1);
           $scope.family.enemies.push(invader);
         } else {
-          $scope.log("Who knows what pushed " + invader + " to attack you with an army of " + enemies + "? In any case, they are now enemies.");
+          $scope.log("Qui sait ce qui a poussé " + invader + " tà vous attquer avec " + enemies + " hommes ? A present ils sont vos ennemis!");
           $scope.family.enemies.push(invader);
         }
       }
@@ -389,7 +389,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
       if (victim) {
         victim.alive = false;
         var perpetrator = $scope.people[Math.floor(Math.random() * $scope.people.length)];
-        $scope.log("In the depth of night at " + victim.location + ", an assassin murdered " + victim.name + " in cold blood, and silently left, leaving behind only a note: 'Regards, " + perpetrator + "'. Could this be the one who hired the assassin?");
+        $scope.log("Au fond de la nuit " + victim.location + ", un assassin a tué" + victim.name + " avec sang froid, et ai parti silencieusement, laissant seulement une note: «Cordialement, " + perpetrator + "'. Qui a engager cet assassin ???");
         if ($scope.family.allies.indexOf(perpetrator) >= 0) {
           $scope.family.allies.splice($scope.family.allies.indexOf(perpetrator), 1);
         }
@@ -411,7 +411,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
       if ($scope.family.allies.indexOf(person) < 0) {
         if ($scope.family.enemies.indexOf(person) >= 0) {
           if (Math.random() < 0.3) {
-            $scope.log(person + " came to you to beg forgiveness. In a move that will go down in history as 'Extremely stupid', you do. Oh well, lets see what happens next");
+            $scope.log(person + " viens vous supplier de lui pardonner. In a move that will go down in history as 'Extremely stupid', you do. Oh well, lets see what happens next");
             $scope.family.enemies.splice($scope.family.enemies.indexOf(person), 1);
           } else {
             $scope.log(person + " came to you to beg forgiveness. You cleverly rejected the proposal. Well done.");

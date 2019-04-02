@@ -98,19 +98,28 @@
       </div>
     </div>
     <div class="row">
+        <div class="small-6 columns">
+            <h5>Journal</h5>
+            <div style="max-height: 250px; overflow: auto;">
+              <div ng-repeat="log in logs track by $index" class="log">{{log}}</div>
+            </div>
+          </div>
       <div>Places:</div>
-      <div class="place" ng-repeat="place in places">
-        {{place.name}} - Maison {{place.house}}
+      <div class="place" ngA-repeat="place in places">
+        <!-- {{place.name}} - Maison {{place.house}} -->
+        <img class="fit-picture"
+     src="a.jpg"
+     alt="Grapefruit slice atop a pile of other slices" />
       </div>
       <hr>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="small-6 columns">
         <h5>Journal</h5>
         <div style="max-height: 250px; overflow: auto;">
           <div ng-repeat="log in logs track by $index" class="log">{{log}}</div>
         </div>
-      </div>
+      </div> -->
       <div class="small-6 columns">
         <h5>Famille:</h5>
         <div ng-repeat="member in family.members track by $index" class="family" ng-class="{dead:!member.alive}">
@@ -136,7 +145,7 @@
 
   </div>
   <div ng-show="showAssassinOptions" class= "modal">
-    SAlors, vous saihaitez tuer {{assassinationTarget}}? Qui souhaitez vous engager?
+    Alors, vous saihaitez tuer {{assassinationTarget}}? Qui souhaitez vous engager?
     <hr>
     <div class="button-group">
       <button class="button tiny" ng-repeat="assassin in assassins" ng-click="orderKill(assassin, assassinationTarget)" ng-disabled="assassin.price > family.steel">{{assassin.name}} ({{assassin.price}} Gold)</button>
