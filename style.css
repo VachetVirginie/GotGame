@@ -1,6 +1,9 @@
 *{
     transition: all 0.2s ease
   }
+
+  
+
   label>span{
     width: 200px;
     display: inline-block
@@ -65,4 +68,32 @@
     text-decoration:underline
   }
 
+  body{
+    font-family: 'Cinzel Decorative', cursive !important;
+  }
+.button-groups {
+  /* width: 45%;
+  float: left; */
+  margin-bottom: 10px;
+  padding: 10px 0;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  font-size: 16px;
+  /* text-align: center; */
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
  
+#map{
+  display: flex;
+  flex-direction: row;
+}
+#head{
+  display: flex;
+  flex-direction: row;
+}

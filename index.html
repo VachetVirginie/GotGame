@@ -7,6 +7,7 @@
     <title>Got</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="a.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script type="text/javascript" src="jq.js"></script>
     <script type="text/javascript" src="monscript.js"></script>
@@ -19,8 +20,11 @@
 
 <body ng-controller="MainCtrl">
   <div ng-hide="started">
-    <center><h2>Simulateur Game of Thrones </h2>
-    <h5>Dirigez une maison et tentez de survivre!</h5></center>
+    <!-- <center><h1>Simulateur Game of Thrones </h1>
+    <h5>Dirigez une maison et tentez de survivre!</h5></center> -->
+    <center><img class="fit-picture" style ="width:50%;"
+    src="ag.jpg"
+    alt="Grapefruit slice atop a pile of other slices" /></center>
     <hr>
     <div style="padding: 1em" class="intro">
       <h6>Premiere étape: Construire votre maison:</h6>
@@ -79,7 +83,7 @@
   </div>
   <div ng-show="started">
     <h3>Maison {{family.name}} - Jour {{family.day}}</h3>
-    <div class="row">
+    <div class="row" id="head">
       <div class="small-6 columns">
         Fonds: {{family.steel}} dragons d'or 
         <br>
@@ -89,26 +93,28 @@
         <div>Soldats: {{family.soldiers}}</div>
         <div class="button-bar">
           <div>Recruter des soldats:</div>
-          <ul class="button-group round" style="font-size:75%">
+          <ul class="button-groups rounds" style="font-size:75%">
             <li><a href="#" class="button" ng-click="hireSoldiers(10)" ng-disabled="family.steel < 100">10  (100 Dragons d'or)</a></li>
             <li><a href="#" class="button" ng-click="hireSoldiers(100)" ng-disabled="family.steel < 1000">100  (1K Dragons d'or)</a></li>
-            <li><a class="button" ng-click="hireSoldiers(family.steel/10)">Max [{{family.steel/10 | number:0}}]</a></li>
+            <li><a class="button" ng-click="hireSoldiers(family.steel/10)">Recrutement max [{{family.steel/10 | number:0}}]</a></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="map">
         <div class="small-6 columns">
-            <h5>Journal</h5>
+           
             <div style="max-height: 250px; overflow: auto;">
+                <h5>Journal</h5>
               <div ng-repeat="log in logs track by $index" class="log">{{log}}</div>
             </div>
           </div>
-      <div>Places:</div>
-      <div class="place" ngA-repeat="place in places">
+      
+      <div class="small-6 columns" ngA-repeat="place in places">
+          <h5>Places:</h5>
         <!-- {{place.name}} - Maison {{place.house}} -->
-        <img class="fit-picture"
-     src="a.jpg"
+        <img class="fit-picture" style="width:70%"
+     src="map.gif"
      alt="Grapefruit slice atop a pile of other slices" />
       </div>
       <hr>
