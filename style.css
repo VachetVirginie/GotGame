@@ -39,12 +39,12 @@
   
   .log{
     font-size: 80%;
-    border-bottom: solid 1px #444;
+    border-bottom: solid 1px #3e3e3e;
   }
   
   .family{
     padding: 0.25em;
-    border: solid 1px #333;
+    border: solid 1px #3e3e3e;
     border-radius: 1em;
   }
   
@@ -61,7 +61,7 @@
   .box{
     margin: 0.25em;
     padding: 0.25em;
-    border: solid 1px #444;
+    border: solid 1px #3e3e3e;
   }
   
   .box h5{
@@ -96,4 +96,8 @@
 #head{
   display: flex;
   flex-direction: row;
+}
+
+#taxes{
+  margin-top:45px;
 }

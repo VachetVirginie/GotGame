@@ -479,7 +479,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     if (Math.random() < 0.2 && $scope.stage === 0 && $scope.family.steel > 400) {
       var summoned = $scope.randomFamily(true);
       summoned.location = "King's Landing";
-      $scope.log(summoned.name + " has been summoned to King's Landing to serve as Hand of the King. Your House received 20,000 Gold Dragons and 1500 Soldiers for the service")
+      $scope.log(summoned.name + " a été nommé main du roi à  King's Landing . Votre maison a reçu 20 000 dragons d'or et 1 500 soldats pour le service")
 
       var soldiers = 1500;
       var steel = 20000;
@@ -495,15 +495,15 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
   var kingDies = function() {
     if (Math.random() < 0.2 && $scope.stage == 1) {
       angular.forEach($scope.family.members, function(member) {
-        member.location = "Home";
+        member.location = "Maison";
       });
-      $scope.log("News of the King's Death spread. Everyone in your house returned Home safely to prepare for the worst.");
+      $scope.log("La nouvelle de la mort du roi se répandit. Tous les membres de votre maison sont rentrés chez eux en toute sécurité pour se préparer au pire.");
       $scope.stage = 2;
     } else if ($scope.stage == 1) {
       angular.forEach($scope.family.members, function(member) {
         if (member.location === "King's Landing" && member.alive) {
           member.alive = false;
-          $scope.log(member.name + " was beheaded in King's Landing by order of Joffrey Baratheon");
+          $scope.log(member.name + "a été décapité in King's Landing sur ordre de  Joffrey Baratheon");
           if ($scope.family.enemies.indexOf("Joffrey Baratheon") < 0) {
             $scope.family.enemies.push("Joffrey Baratheon");
           }
@@ -519,7 +519,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
   var winterIsComing = function() {
     if (Math.random < 0.1 && $scope.stage <= 1) {
       $scope.stage = 2;
-      $scope.log("The Night's Watch sent a raven: Winter is Coming");
+      $scope.log("La garde de nuit a envoyé un corbeau: Winter is Coming");
       $scope.nightsWatchRecruiting = true;
     }
   }
@@ -529,7 +529,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
     if (Math.random() < 0.02 && $scope.stage == 2 && $scope.nightsWatchRecruiting) {
       var person = $scope.randomFamily(true);
       person.location = "Castle Black";
-      $scope.log(person.name + " journeyed to Castle Black to learn about the Night's Watch. They speak of White Walkers, but they're extinct... right?");
+      $scope.log(person.name + "voyage à Castle Black pour en apprendre davantage sur la montre de nuit. Ils parlent de White Walkers, mais ils sont éteints… n'est-ce pas?");
       $scope.nightsWatchRecruiting = false;
     }
   }
@@ -541,13 +541,13 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
 
       var roll = Math.random();
       if (roll < 0.2) {
-        $scope.log("Your ally, " + victim + " died in the night, \"peacefully\"");
+        $scope.log("Votre allié, " + victim + " est mort dans la nuit, \"pacifiquement\"");
       } else if (roll < 0.6) {
-        $scope.log("Your ally, " + victim + " died of poison. The one responsible has not been caught");
+        $scope.log("Votre allié, " + victim + " est mort empoisonné. Le responsable reste inconnu");
       } else if (roll < 0.9) {
-        $scope.log(victim + " died en route to Winterfell. Wonder who was behind it?");
+        $scope.log(victim + " mort en route pour Winterfell. Qui est derriére ça?");
       } else {
-        $scope.log(victim + " died horrifically being burnt alive. Let this be a lesson about playing with fire.");
+        $scope.log(victim + " est mort brûlé vif. Que ce soit une leçon sur le fait de jouer avec le feu..");
       }
 
       $scope.killPerson(victim);
@@ -565,7 +565,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
         }
       });
       if (person) {
-        $scope.log("Some Men of the Watch branded " + person.name + " a traitor. There was a log of stabbing, and blood, and Olly, whose parents died.");
+        $scope.log("Une partie des hommes de la garde designent " + person.name + " comme un traitre. Il y avait des traces de coups de couteau et de sang, sur Olly, dont les parents sont morts.");
         person.alive = false;
         $scope.ollied = true;
       }
@@ -585,11 +585,11 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
         }
       });
       if (alive > 1) {
-        $scope.log("Melisandre convinced your House to burn " + victim.name + " in the name of the Lord of Light to melt some snow. After having done the deed, she quickly left at the realization of her mistake.");
+        $scope.log("Melisandre a convaincu votre maison de brûler " + victim.name + "au nom du Seigneur de la Lumière pour faire fondre de la neige. Après avoir accompli cet acte, elle s'est rapidement apperçu de son erreur.");
         victim.alive = false;
 
       } else {
-        $scope.log("Melisandre is displeased with the lack of progress for the Iron Throne, and decided to leave you. Might as well, she was suggesting something about burning royalty");
+        $scope.log("Melisandre est mécontente du manque de progrès pour le trône de fer et a décidée de vous quitter. Peut-être aussi, elle suggérait quelque chose à propos de brûler des redevances");
 
       }
       $scope.family.allies.splice($scope.family.allies.indexOf("Melisandre"), 1);
@@ -604,7 +604,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
       $scope.demonBabied = true;
       var person = $scope.randomFamily(true);
       var victim = $scope.family.enemies[Math.floor(Math.random() * $scope.family.enemies.length)];
-      $scope.log(person.name + " was seduced by Melisandre, they made love, then she gave birth to a demon baby, because. Then this demon baby killed " + victim + ", so there's that. Hope " + person.name + " didn't get an STD in the process.");
+      $scope.log(person.name + "a été séduit par Melisandre, ils ont fait l'amour, puis elle a donné naissance à un bébé démon, parce que. Puis ce bébé démon a tué "+ victime +", alors voilà. Hope "+ person.name +" n'a pas obtenu de STD dans le processus.");
 
       $scope.killPerson(victim);
     }
@@ -617,24 +617,24 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
       $scope.trialled = true;
       var person = $scope.randomFamily(true);
       person.location = "King's Landing";
-      var msg = person.name + " was forcibly taken to King's Landing under the charge of Treason. ";
+      var msg = person.name + " a été emmené de force à King's Landing sous l'accusation de trahison.";
       if ($scope.family.allies.indexOf("Doran Martell") >= 0) {
-        msg += "Oberyn Martell decided to be your Champion as his brother Doran is allied with you. He's a pretty nice guy, but maybe his emotions got in the way. Anyway, he died pretty gruesomely in the duel. ";
+        msg += "Oberyn Martell a décidé d’être votre champion, son frère Doran étant allié avec vous. C'est un gars plutôt sympa, mais peut-être que ses émotions ont fait obstacle. En tout cas, il mourut de façon macabre dans le duel. ";
         if (Math.random() < 0.75 && $scope.family.allies.length > 0) {
           var ally = $scope.family.allies[Math.floor(Math.random() * $scope.family.allies.length)];
-          msg += person.name + " however managed to escape with the help of " + ally;
+          msg += person.name + " cependant réussi à s'échapper avec l'aide de " + ally;
           person.location = "Home";
         } else {
           person.alive = false;
-          msg += person.name + " was summarily executed on the spot by the Crown's champion";
+          msg += person.name + " a été sommairement exécuté sur place par le champion de la Couronne";
         }
       } else {
-        msg += person.name + " decided to be cleared of charges via trial by combat. ";
+        msg += person.name + "  décidé de se débarrasser des charges par procès au combat. ";
         if (Math.random() < 0.5) {
-          msg += person.name + " won, and was let go";
-          person.location = "Home";
+          msg += person.name + " gagné, et a été laissé aller";
+          person.location = "Maison";
         } else {
-          msg += person.name + " died by sword through gut.";
+          msg += person.name + "mort par l'épée à travers les entrailles.";
           person.alive = false;
         }
       }
@@ -659,7 +659,7 @@ app.controller("MainCtrl", function($scope, $timeout, $interval) {
 
       if (personHouse && personHouse !== place.house) {
         place.house = personHouse;
-        $scope.log(person + " attacked " + place.name + " and took control of it.");
+        $scope.log(person + " attaque " + place.name + "et en prend le contrôle.");
       }
     }
 
